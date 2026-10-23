@@ -276,6 +276,20 @@ if(strpos($printer_files, 'ERROR2') !== false) { ?>
         function resumePrinting() { monoXControl('resume'); }
         function stopPrinting() { monoXControl('stop'); }
 
+        // MONOX_DURATION_TOTAL_HOURS_V1: durations are not 24-hour clocks.
+        function monoXDuration(value) {
+            if (value === null || value === undefined || String(value).trim() === '') return '--:--:--';
+            var seconds = Number(value);
+            if (!Number.isFinite(seconds) || seconds < 0) return '--:--:--';
+            seconds = Math.floor(seconds);
+            var hours = Math.floor(seconds / 3600);
+            var minutes = Math.floor((seconds % 3600) / 60);
+            var remainder = seconds % 60;
+            return String(hours).padStart(2, '0') + ':' +
+                   String(minutes).padStart(2, '0') + ':' +
+                   String(remainder).padStart(2, '0');
+        }
+
         function getPrinterStatus() {
             btn_pause = document.getElementById("pausePrinting_span");
             btn_stop = document.getElementById("stopPrinting_span");
@@ -374,7 +388,7 @@ if(strpos($printer_files, 'ERROR2') !== false) { ?>
 
                     // display printer details
                     var name = obj.print_job_name;
-                    var remaining = new Date(obj.seconds_remaining * 1000).toISOString().substr(11, 8);
+                    var remaining = monoXDuration(obj.seconds_remaining);
                     var percent_complete = obj.percent_complete.replace("%","");
 
                     updateCTRL("printer_job",name);

@@ -1,3 +1,15 @@
+# Mono X USB Share — documented continuation
+
+## Continuation by AKABigDinner
+
+This project continues the preserved **Pi Zero W Smart USB Flash Drive** project. Original authorship, Git history and GPL-3.0 license are retained. Start with [our guide](docs/GUIDE.md), [credits](docs/CREDITS.md), and [test results](docs/TEST_RESULTS.md).
+
+Current additions: total-hours webpage display repair and a Windows camera/status widget. UART/USB recovery findings are documented separately as experimental work. **There is no new Raspberry Pi image release yet.** The clean-image build and fresh-card validation are [planned](docs/IMAGE_RELEASE_PLAN.md).
+
+The historical upstream README follows unchanged. Its setup instructions and hardware claims are historical; they are not a validation of this continuation on every listed Pi/printer.
+
+---
+
 # Pi Zero W Smart USB Flash Drive
 
 SMB enabled network share that appears as a USB drive to a connected device, and web-based portal for controlling AnyCubic Mono X/SE printers. 

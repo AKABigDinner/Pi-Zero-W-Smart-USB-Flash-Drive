@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+settings.json
+widget.log
+*.img
+*.img.xz
+*.iso
+*.bin
+*.backup-*
+*.before-total-hours-*
